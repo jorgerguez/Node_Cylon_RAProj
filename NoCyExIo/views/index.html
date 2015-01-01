@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>JOYSTICK</title>
+	<script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+	<div><center>
+		<h1>LED VERDE</h1>
+		<button onclick="verdon()" style="width:100%">
+			<h2>ENCENDER</h2>
+		</button>
+		<button onclick="verdoff()" style="width:100%">
+			<h2>APAGAR</h2>
+		</button>
+		<h1>LED ROJA</h1>
+		<button onclick="rojon()" style="width:100%">
+			<h2>ENCENDER</h2>
+		</button>
+		<button onclick="rojoff()" style="width:100%">
+			<h2>APAGAR</h2>
+		</button>
+		<h1>MOTOR BANDA</h1>
+                <button onclick="moton()" style="width:100%">
+                        <h2>ENCENDER</h2>
+                </button>
+                <button onclick="motoff()" style="width:100%">
+                        <h2>APAGAR</h2>
+                </button></center>
+	</div>
+	<script>
+		window.client = io.connect(window.location.origin + "/");
+
+		function verdon(){
+			window.client.emit('verdon');
+		}
+		function verdoff(){
+			window.client.emit('verdoff');
+		}
+		function rojon(){
+			window.client.emit('rojon');
+		}
+		function rojoff(){
+			window.client.emit('rojoff');
+		}
+		function moton(){
+                        window.client.emit('moton');
+                }
+                function motoff(){
+                        window.client.emit('motoff');
+                }
+	</script>
+</body>
+</html>
